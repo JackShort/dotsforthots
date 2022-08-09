@@ -11,6 +11,8 @@ require("telescope").setup({
     },
 })
 require('telescope').load_extension('fzf')
-require('telescope').load_extension('coc')
+if vim.g.vscode == nil then
+  require('telescope').load_extension('coc')
+end
 require('telescope').load_extension('file_browser')
 require'nvim-web-devicons'.setup({})

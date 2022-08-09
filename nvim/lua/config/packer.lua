@@ -12,12 +12,16 @@ return require("packer").startup(function()
     }
 
     -- syntax
-    use {'neoclide/coc.nvim', branch = 'release'}
-    use("fannheyward/telescope-coc.nvim")
+    if vim.g.vscode == nil then
+      use {'neoclide/coc.nvim', branch = 'release'}
+      use("fannheyward/telescope-coc.nvim")
+    end
     use("nvim-treesitter/nvim-treesitter", {
         run = ":TSUpdate"
     })
     use("romgrk/nvim-treesitter-context")
+    use { 'nvim-treesitter/nvim-treesitter-textobjects', after = { 'nvim-treesitter' } }
+
 
     -- navigation
     use("ThePrimeagen/harpoon")

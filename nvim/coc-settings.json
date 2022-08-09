@@ -15,7 +15,8 @@
     "typescript",
     "typescriptreact",
     "json",
-    "jsonc"
+    "jsonc",
+    "solidity"
   ],
   "diagnostic.format": "%message [%source]",
   "diagnostic.virtualText": true,
