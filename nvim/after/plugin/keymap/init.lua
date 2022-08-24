@@ -51,14 +51,14 @@ if vim.g.vscode == nil then
   nnoremap("<leader>ez", ":TZAtaraxis<CR>", silent)
 
   -- coc
-  vim.keymap.set('n', 'gd', '<Plug>(coc-definition)', silent)
-  vim.keymap.set('n', 'gi', '<Plug>(coc-implementation)', silent)
-  vim.keymap.set('n', 'gt', '<Plug>(coc-type-definition)', silent)
   vim.keymap.set('n', 'gh', ':call CocActionAsync("doHover")<CR>', silent)
   vim.keymap.set('n', '<leader>d', ':call CocAction("jumpDefinition", v:false)<CR>', silent)
   vim.keymap.set('n', '<leader>t', ':call CocAction("jumpTypeDefinition", v:false)<CR>', silent)
-  nnoremap("gr", ":Telescope coc references<CR>")
-  nnoremap("<leader>td", ":Telescope coc diagnostics<CR>")
+  nnoremap("gd", ":Telescope coc definitions<CR>", silent)
+  nnoremap("gt", ":Telescope coc type_definitions<CR>", silent)
+  nnoremap("gi", ":Telescope coc implementations<CR>", silent)
+  nnoremap("gr", ":Telescope coc references<CR>", silent)
+  nnoremap("<leader>td", ":Telescope coc diagnostics<CR>", silent)
 
   vim.cmd([[
       inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -75,8 +75,8 @@ if vim.g.vscode == nil then
   nnoremap("<leader>h", function() require("harpoon.ui").toggle_quick_menu() end, silent)
   nnoremap("<leader>tc", function() require("harpoon.cmd-ui").toggle_quick_menu() end, silent)
 
-  nnoremap("<C-e>", function() require("harpoon.ui").nav_file(1) end, silent)
-  nnoremap("<C-s>", function() require("harpoon.ui").nav_file(2) end, silent)
-  nnoremap("<C-t>", function() require("harpoon.ui").nav_file(3) end, silent)
-  nnoremap("<C-b>", function() require("harpoon.ui").nav_file(4) end, silent)
+  nnoremap("<C-h>", function() require("harpoon.ui").nav_file(1) end, silent)
+  nnoremap("<C-e>", function() require("harpoon.ui").nav_file(2) end, silent)
+  nnoremap("<C-s>", function() require("harpoon.ui").nav_file(3) end, silent)
+  nnoremap("<C-t>", function() require("harpoon.ui").nav_file(4) end, silent)
 end
