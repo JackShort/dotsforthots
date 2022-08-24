@@ -1,13 +1,13 @@
 # open applications
 # ctrl - return : open -na /Applications/Alacritty.app && \
 #                 yabai -m space --focus 2 alt - w : open -na /Applications/Google\ Chrome.app
-alt - m : open -na /System/Applications/Messages.app
+# alt - m : open -na /System/Applications/Messages.app
 shift + alt - s : open -na /Applications/Slack.app
 # focus window
-ctrl - h : yabai -m window --focus west
-ctrl - l : yabai -m window --focus east
-ctrl - j : yabai -m window --focus stack.next || yabai -m window --focus south || yabai -m window --focus stack.first
-ctrl - k : yabai -m window --focus stack.prev || yabai -m window --focus north || yabai -m window --focus stack.last
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+alt - j : yabai -m window --focus stack.next || yabai -m window --focus south || yabai -m window --focus stack.first
+alt - k : yabai -m window --focus stack.prev || yabai -m window --focus north || yabai -m window --focus stack.last
 
 # focus monitor
 #ctrl - p : yabai -m display --focus prev
@@ -50,7 +50,7 @@ alt + ctrl - n : yabai -m space --create && \
 cmd + ctrl - w : yabai -m space --destroy
 
 # fast focus desktop
-ctrl - 0x27 : yabai -m space --focus recent
+alt - 0x27 : yabai -m space --focus recent
 #ctrl - p : yabai -m space --focus prev || skhd -k "ctrl + alt + cmd - z"
 #ctrl - n : yabai -m space --focus next || skhd -k "ctrl + alt + cmd - c"
 #ctrl - 1 : yabai -m space --focus  spotify || skhd -k "ctrl + alt + cmd - 1"
@@ -63,13 +63,13 @@ ctrl - 7 : yabai -m space --focus  7 || skhd -k "ctrl + alt + cmd - 7"
 ctrl - 8 : yabai -m space --focus  8 || skhd -k "ctrl + alt + cmd - 8"
 ctrl - 9 : yabai -m space --focus  9 || skhd -k "ctrl + alt + cmd - 9"
 
-ctrl - 1 : yabai -m space --focus spotify || yabai -m space --focus recent
-ctrl - 4 : yabai -m space --focus mail || yabai -m space --focus recent
-ctrl - 2 : yabai -m space --focus work || yabai -m space --focus recent
-ctrl - 3 : yabai -m space --focus web || yabai -m space --focus recent
-ctrl - m : yabai -m space --focus messaging || yabai -m space --focus recent
-ctrl - 0x21 : yabai -m space --focus notes || yabai -m space --focus recent
-ctrl - 0x1E : yabai -m space --focus discord || yabai -m space --focus recent
+alt - 1 : yabai -m space --focus spotify || yabai -m space --focus recent
+alt - 2 : yabai -m space --focus work || yabai -m space --focus recent
+alt - 3 : yabai -m space --focus web || yabai -m space --focus recent
+alt - 4 : yabai -m space --focus mail || yabai -m space --focus recent
+alt - m : yabai -m space --focus messaging || yabai -m space --focus recent
+alt - 0x21 : yabai -m space --focus notes || yabai -m space --focus recent
+alt - 0x1E : yabai -m space --focus discord || yabai -m space --focus recent
 
 # send window to desktop and follow focus
 #shift + ctrl - 0x27 : yabai -m window --space recent && yabai -m space
@@ -89,16 +89,16 @@ cmd + ctrl - 9 : yabai -m window --space  9 && yabai -m space
 cmd + ctrl - 0 : yabai -m window --space 10 && yabai -m space
 
 # increase window size
-alt - h : yabai -m window --resize left:-20:0
-alt - j : yabai -m window --resize bottom:0:20
-alt - k : yabai -m window --resize top:0:-20
-alt - l : yabai -m window --resize right:20:0
+shift + alt - h : yabai -m window --resize left:-20:0
+shift + alt - j : yabai -m window --resize bottom:0:20
+shift + alt - k : yabai -m window --resize top:0:-20
+shift + alt - l : yabai -m window --resize right:20:0
 
 # decrease window size
-shift + alt - h : yabai -m window --resize left:20:0
-shift + alt - j : yabai -m window --resize bottom:0:-20
-shift + alt - k : yabai -m window --resize top:0:20
-shift + alt - l : yabai -m window --resize right:-20:0
+ctrl + alt - h : yabai -m window --resize left:20:0
+ctrl + alt - j : yabai -m window --resize bottom:0:-20
+ctrl + alt - k : yabai -m window --resize top:0:20
+ctrl + alt - l : yabai -m window --resize right:-20:0
 
 # move window
 shift + cmd + alt - h : yabai -m window --move rel:-20:0
@@ -110,7 +110,7 @@ shift + cmd + alt - l : yabai -m window --move rel:20:0
 #shift + ctrl - 0x29 : yabai -m window --toggle zoom-parent
 
 # toggle fullscreen zoom
-ctrl - 0x29 : yabai -m window --toggle zoom-fullscreen
+alt - 0x29 : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
@@ -125,7 +125,7 @@ alt - y : yabai -m space --mirror y-axis
 alt - x : yabai -m space --mirror x-axis
 
 # float / unfloat window and center on screen
-cmd + ctrl - 0x29 : yabai -m window --toggle float;\
+cmd + alt - 0x29 : yabai -m window --toggle float;\
            yabai -m window --grid 4:4:1:1:2:2
 
 # toggle sticky (show on all spaces)
@@ -136,7 +136,7 @@ alt - y : yabai -m window --toggle sticky;\
           yabai -m window --toggle topmost;\
 
 # toggle layout
-ctrl - 0x2C : yabai -m window --stack next || yabai -m window --stack prev
+alt - 0x2C : yabai -m window --stack next || yabai -m window --stack prev
 
 # grab messages
 #ctrl - m : index="$(yabai -m query --windows --space messaging | jq '.[-1].id')" && \
