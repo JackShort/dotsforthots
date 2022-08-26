@@ -4,8 +4,7 @@ local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
-local nmap = Remap.nmap
-local silent = { silent = true }
+local nmap = Remap.nmap local silent = { silent = true }
 
 require("leap").set_default_keymaps()
 
@@ -51,24 +50,24 @@ if vim.g.vscode == nil then
   nnoremap("<leader>ez", ":TZAtaraxis<CR>", silent)
 
   -- coc
-  vim.keymap.set('n', 'gh', ':call CocActionAsync("doHover")<CR>', silent)
-  vim.keymap.set('n', '<leader>d', ':call CocAction("jumpDefinition", v:false)<CR>', silent)
-  vim.keymap.set('n', '<leader>t', ':call CocAction("jumpTypeDefinition", v:false)<CR>', silent)
-  nnoremap("gd", ":Telescope coc definitions<CR>", silent)
-  nnoremap("gt", ":Telescope coc type_definitions<CR>", silent)
-  nnoremap("gi", ":Telescope coc implementations<CR>", silent)
-  nnoremap("gr", ":Telescope coc references<CR>", silent)
-  nnoremap("<leader>td", ":Telescope coc diagnostics<CR>", silent)
-
-  vim.cmd([[
-      inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-      inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "<TAB>"
-      
-      function! CheckBackspace() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-      endfunction
-  ]])
+  -- vim.keymap.set('n', 'gh', ':call CocActionAsync("doHover")<CR>', silent)
+  -- vim.keymap.set('n', '<leader>d', ':call CocAction("jumpDefinition", v:false)<CR>', silent)
+  -- vim.keymap.set('n', '<leader>t', ':call CocAction("jumpTypeDefinition", v:false)<CR>', silent)
+  -- nnoremap("gd", ":Telescope coc definitions<CR>", silent)
+  -- nnoremap("gt", ":Telescope coc type_definitions<CR>", silent)
+  -- nnoremap("gi", ":Telescope coc implementations<CR>", silent)
+  -- nnoremap("gr", ":Telescope coc references<CR>", silent)
+  -- nnoremap("<leader>td", ":Telescope coc diagnostics<CR>", silent)
+  --
+  -- vim.cmd([[
+  --     inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  --     inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "<TAB>"
+  --    
+  --     function! CheckBackspace() abort
+  --       let col = col('.') - 1
+  --       return !col || getline('.')[col - 1]  =~# '\s'
+  --     endfunction
+  -- ]])
 
   -- harpoon
   nnoremap("<leader>a", function() require("harpoon.mark").add_file() end, silent)
@@ -79,4 +78,11 @@ if vim.g.vscode == nil then
   nnoremap("<C-e>", function() require("harpoon.ui").nav_file(2) end, silent)
   nnoremap("<C-s>", function() require("harpoon.ui").nav_file(3) end, silent)
   nnoremap("<C-t>", function() require("harpoon.ui").nav_file(4) end, silent)
+
+  -- vimux
+  nnoremap("<leader>or", ":VimuxOpenRunner<CR>", silent)
+  nnoremap("<leader>cr", ":VimuxCloseRunner<CR>", silent)
+  nnoremap("<leader>rt", ":VimuxRunCommand 'forge test'<CR>", silent)
+  nnoremap("<leader>rga", ":VimuxRunCommand 'git add .'<CR>", silent)
+  nnoremap("<leader>rgcm", ":VimuxRunCommand 'git checkout main'<CR>", silent)
 end
