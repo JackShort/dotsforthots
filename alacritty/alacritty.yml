@@ -1,7 +1,13 @@
+env:
+  TERM: alacritty
+
+
 window:
+  title: Terminal
+  dynamic_title: true
   decorations: transparent
   padding:
-    x: 30
+    x: 20
     y: 30
 
 
@@ -12,4 +18,7 @@ font:
 
 colors:
   primary:
-    background: '#1a1a1a'
+    background: '#161616'
+
+scrolling:
+  history: 100000
