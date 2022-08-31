@@ -40,6 +40,9 @@ if vim.g.vscode == nil then
   nnoremap("<leader>fb", function()
     require("telescope").extensions.file_browser.file_browser()
   end)
+  nnoremap("gt", ":Telescope lsp_type_definitions<CR>", silent)
+  nnoremap("gr", ":Telescope lsp_references<CR>", silent)
+  nnoremap("ge", ":Telescope diagnostics<CR>", silent)
 
   -- navigation
   nnoremap("<leader>'", ":e#<CR>", silent)
