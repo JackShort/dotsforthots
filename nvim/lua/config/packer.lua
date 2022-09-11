@@ -23,8 +23,12 @@ return require("packer").startup(function()
     use 'hrsh7th/nvim-cmp'
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
+    -- use 'williamboman/mason.nvim'
+    -- use 'williamboman/mason-lspconfig.nvim'
+
+    -- syntax
+    use 'tomlion/vim-solidity'
+    use 'evanleck/vim-svelte'
 
     -- syntax
     use {
@@ -65,9 +69,20 @@ return require("packer").startup(function()
     }
 
     -- formatter
-    use "sbdchd/neoformat"
+    use "jose-elias-alvarez/null-ls.nvim"
 
     -- colors
+    use { 
+      'olivercederborg/poimandres.nvim',
+      config = function()
+        require('poimandres').setup {
+          -- leave this setup function empty for default config
+          -- or refer to the configuration section
+          -- for configuration options
+        }
+      end
+    }
+    use { "catppuccin/nvim", as = "catppuccin" }
     use "rebelot/kanagawa.nvim"
     use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
     use 'luochen1990/rainbow'

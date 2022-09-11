@@ -25,6 +25,17 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',qf', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
+end
+
+local on_init = function(client)
+  client.config.flags = {}
+  if client.config.flags then
+    client.config.flags.allow_incremental_sync = true
+    client.config.flags.debounce_text_changes = 200
+  end
 end
 
 
@@ -33,6 +44,10 @@ lspconfig.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" }
+}
+
+lspconfig.svelte.setup {
+  on_attach = on_attach
 }
 
 configs.solidity = {
@@ -45,22 +60,37 @@ configs.solidity = {
 }
 lspconfig.solidity.setup {}
 
-lspconfig.sumneko_lua.setup {
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
+-- lspconfig.sumneko_lua.setup {
+--   on_attach = on_attach,
+--   settings = {
+--     Lua = {
+--       diagnostics = {
+--         -- Get the language server to recognize the `vim` global
+--         globals = { 'vim' },
+--       },
+--
+--       workspace = {
+--         -- Make the server aware of Neovim runtime files
+--         library = vim.api.nvim_get_runtime_file("", true),
+--         checkThirdParty = false
+--       },
+--     },
+--   },
+-- }
+--
+lspconfig.cssls.setup {
+  on_init = on_init;
+  capabilities = capabilities,
+}
 
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false
-      },
-    },
-  },
+lspconfig.html.setup {
+  on_init = on_init;
+  capabilities = capabilities,
+}
+
+lspconfig.jsonls.setup {
+  on_init = on_init;
+  capabilities = capabilities,
 }
 
 lsp_signature_cfg = {
