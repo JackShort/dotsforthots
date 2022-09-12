@@ -8,6 +8,12 @@ local nmap = Remap.nmap local silent = { silent = true }
 
 require("leap").set_default_keymaps()
 
+-- pasting and yanking remmappings
+xnoremap("<leader>p", "\"_dP")
+nnoremap("<leader>y", "\"+y")
+vnoremap("<leader>y", "\"+y")
+nmap("<leader>Y", "\"+Y")
+
 -- triggers
 nnoremap("<leader>tn", "<cmd>Ex<CR>")
 nnoremap("<leader>tu", ":UndotreeShow<CR>")
