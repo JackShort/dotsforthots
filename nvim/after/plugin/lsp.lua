@@ -66,10 +66,26 @@ end
 
 
 -- lsp servers
+
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = {vim.api.nvim_buf_get_name(0)},
+    title = ""
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" }
+  cmd = { "typescript-language-server", "--stdio" },
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports"
+    }
+  }
 }
 
 lspconfig.svelte.setup {
@@ -84,7 +100,17 @@ configs.solidity = {
     single_file_support = true,
   },
 }
-lspconfig.solidity.setup {}
+-- lspconfig.solidity.setup {
+--   cmd = { 'solidity-ls', '--stdio' },
+--   filetypes = { 'solidity' },
+--   root_dir = lspconfig.util.root_pattern('package.json', '.git'),
+--   single_file_support = true,
+-- }
+
+lspconfig.tailwindcss.setup {
+  on_attach = on_attach,
+  capabilities =capabilities,
+}
 
 -- lspconfig.sumneko_lua.setup {
 --   on_attach = on_attach,
@@ -105,17 +131,17 @@ lspconfig.solidity.setup {}
 -- }
 --
 lspconfig.cssls.setup {
-  on_init = on_init;
+  on_init = on_init,
   capabilities = capabilities,
 }
 
 lspconfig.html.setup {
-  on_init = on_init;
+  on_init = on_init,
   capabilities = capabilities,
 }
 
 lspconfig.jsonls.setup {
-  on_init = on_init;
+  on_init = on_init,
   capabilities = capabilities,
 }
 

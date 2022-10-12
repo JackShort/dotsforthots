@@ -72,6 +72,7 @@ return require("packer").startup(function()
     use "jose-elias-alvarez/null-ls.nvim"
 
     -- colors
+    use "shaunsingh/nord.nvim"
     use { 
       'olivercederborg/poimandres.nvim',
       config = function()

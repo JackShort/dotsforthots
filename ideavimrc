@@ -1,0 +1,10 @@
+:set relativenumber
+:set number 
+:set ignorecase
+:set scrolloff=8
+:set noerrorbells
+
+let mapleader = " "
+
+" MAPPINGS
+nnoremap <silent> <Leader>' :e#<CR>
